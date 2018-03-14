@@ -48,6 +48,8 @@
             </li>
             <li><a href="#" role="button" class="pure-button switch" id="group-by-donor-type">Split by type of donor</a>
             </li>
+            <li><a href="#" role="button" class="pure-button switch" id="group-by-the-amount-of-donors">Split by amount</a> 
+            </li>
         </ul>
     </nav>
 
@@ -88,7 +90,7 @@
 
         <!-- Public or private money annotations -->
         <div id="view-source-type">
-            <div id="public-or-private-money" class="public-private">
+            <div id="public-or-private-money" class="public-private,zoom">
                 <h3>Public money vs private cash</h3>
                 <p>Despite general public opposition to more taxpayer money being given to political parties, public funds are already provided to opposition parties in the form of 'short money' from the House of Commons, House of Lords and Scottish Parliament.</p>
                 <p>The parties also benefit from 'Policy development grants' given by the Electoral Commission.</p>
@@ -198,15 +200,32 @@
                         </p>
             </div>
         </div>
-    </div>
+    
+		<div id="view-amount-type"> 
+			<h5 id="prwto_split">0-30.000 British pounds</h5>
+			<h5 id="deutero_split">30.000-150.000 British pounds</h5>
+			<h5 id="trito_split">150.000-500.000 British pounds</h5>
+			<h5 id="tetarto_split">500.000-5.000.000 British pounds</h5>
+			<h5 id="pempto_split">5.0000.000-20.000.000 British pounds</h5>
+
+		</div> 
+              
+			
+        
+        
+	</div>
+	
     <div id="chart"></div>
 
 
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> -->
+    <script src="source/jquery.min.js"></script>
     <script>
     window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')
     </script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.2.2/d3.v3.min.js" charset="utf-8"></script>
+    <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.2.2/d3.v3.min.js" charset="utf-8"></script> -->
+    <script src="source/d3.v3.min.js" charset="utf-8"></script>
+    <script src="source/responsive-voice.min.js"></script>
     <script src="chart.js"></script>
 </body>
 
