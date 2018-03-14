@@ -21,12 +21,12 @@ li {
 
 /* 	Information boxes for different chart layouts */
 /* Positioning */
-#initial-content, #a, #b, #c, #d, #e, #f, #view-party-type, #view-donor-type, #view-source-type, #partyInfo, #conservative, #labour, #libdem, #individual, #company, #union, #society, #other, #public-or-private-money, #public-or-private-money-split, #private-money, #public-money { 
-    position: absolute; 
+#initial-content, #view-amount-type, #a, #b, #c, #d, #e, #f, #view-party-type,#view-donor-type ,#view-donor-type, #view-source-type, #partyInfo, #conservative, #labour, #libdem, #individual, #company, #union, #society, #other, #public-or-private-money, #public-or-private-money-split, #private-money, #public-money {
+    position: absolute;
 }
 
 /* Initial appearance on load */
-#view-party-type, #view-donor-type, #view-source-type {
+#view-party-type, #view-donor-type, #view-source-type, #view-amount-type{
     display: none;
 }
 
@@ -40,6 +40,36 @@ li {
     width: 272px;
 }
 
+#prwto_split {
+    top: 480px;
+    left:700px;
+    position: relative;
+}
+
+#deutero_split {
+    top: 240px;
+    left:650px;
+	position:relative;
+}
+
+#trito_split {
+	top:  130px;
+    left: 20px;
+	position:relative;
+}
+
+#tetarto_split {
+	top: 325px;
+    left: 20px;
+	position:relative;
+}
+
+#pempto_split {
+    left: 320px;
+    width: 250px;
+	position:relative;
+}
+
 /*  Public or private funds view */
 
 #public-or-private-money {
@@ -48,7 +78,7 @@ li {
 #public-or-private-money-split {
     top: 550px;
     left: -600px;
-    text-align: center;   
+    text-align: center;
 }
 #private-money, #public-money {
     width: 200px;
@@ -63,15 +93,15 @@ li {
 /*  Party view */
 #conservative, #labour, #libdem { padding: 10px; }
 #conservative {
-    background: rgba(8, 127, 189, 0.2);
+    background: rgba(0, 46, 12, 0.9);
     top: 110px;
 }
 #labour {
-    background: rgba(240, 34, 51, 0.2);
+    background: rgba(32, 19, 59, 0.9);
     top: 330px;
 }
 #libdem {
-    background: rgba(253, 187, 48, 0.2);
+    background: rgba(30, 201, 188, 0.9);
     top: 550px;
 }
 
@@ -80,7 +110,7 @@ li {
     height: 100%;
     left: 500px;
     width: 370px;
-    
+
 }
 #individual {
     top: 55px;
@@ -101,6 +131,11 @@ li {
     text-align: right;
     right: 0
 }
+
+
+
+/* Amount type layout */
+
 
 /* Value scale */
 
@@ -235,4 +270,10 @@ https://github.com/yui/pure/blob/master/LICENSE.md
 .pure-button-active, .pure-button:active {
     color: rgb(0, 120, 231);
     color: #fff
+}
+
+p:hover,h1:hover,h2:hover,h3:hover,h4:hover,h5:hover{
+  -ms-transform: scale(1.15); /* IE 9 */
+  -webkit-transform: scale(1.15); /* Safari 3-8 */
+  transform: scale(1.15);
 }
