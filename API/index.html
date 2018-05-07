@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>2015006</title>
+  <meta charset="utf-8">
+  <style>
+    @import url(https://fonts.googleapis.com/css?family=Oswald:400|Open+Sans:700);
+
+    @import url(http://weloveiconfonts.com/api/?family=fontawesome);
+
+    /* fontawesome */
+    [class*="fontawesome-"]:before {
+      font-family: 'FontAwesome', sans-serif;
+    }
+
+    body {
+      background: #e6e6d8 url('https://dl.dropboxusercontent.com/s/t0gu051d08sei65/bg-retro-noise.png');
+      color: #121212;
+    }
+
+    div.text {
+      margin-top: 8vh;
+      margin-bottom: 15vh;
+      text-align: center;  
+    }
+
+    h1, h3 {
+      transform: matrix(1, -0.20, 0, 1, 0, 0);
+      -ms-transform: matrix(1, -0.20, 0, 1, 0, 0);
+      -webkit-transform: matrix(1, -0.20, 0, 1, 0, 0);
+    }
+
+    h1 {
+      font-family: "Oswald", Sans-serif;
+      text-transform: uppercase;
+      font-weight: 400;
+      font-size: 70px;
+      text-shadow: 4px 5px #e6e6d8, 6px 7px #c6a39a;
+    }
+
+    h1 span {
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    span.star {
+      font-size: 10px;
+    }
+
+    h3 {
+      font-family: "Open Sans", Sans-serif;
+      text-transform: uppercase;
+      font-weight: 700;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      margin-bottom: 10px;  
+      position: relative;
+    }
+
+    h3:before, h3:after {
+      content: " ";
+      position: absolute;
+      width: 100px;
+      height: 4px;
+      border-top: 2px solid #121212;
+      border-bottom: 2px solid #121212;
+    }
+
+    h3:before {
+      margin: 5px 0 0 -110px;
+    }
+
+    h3:after {
+      margin: 5px 0 0 10px;
+    }
+
+    h2 {
+        text-align: center;
+      }
+    div#participants {
+            width: auto;
+            height: auto;
+    }
+
+    p{
+      font-size: 1.4em;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="text">
+    <h3>Hey everyone look at this</h3>
+      <h1><span class="fontawesome-star star"></span> <span>participants </span>
+           <span class="fontawesome-star star"></span>
+      </h1>
+  </div>
+
+  <div id="participants"> </div>
+
+
+  
+
+<script>
+    function addPerson(participant) {
+        var participantsElement = document.getElementById("participants");
+        var newPerson = document.createElement("DIV");
+        newPerson.id = participant.login;
+        newPerson.style.display = "inline-flex";
+        newPerson.style.width = "400px";
+        newPerson.style.height = "auto";
+        newPerson.style.margin = "10px";
+        newPerson.style.padding = "10px";
+        newPerson.style.cursor = "pointer";
+        newPerson.style.border = "5px double #55b0ff";
+        newPerson.style.borderRadius = "5px";
+        newPerson.onclick = function () {
+            window.open(participant.html_url);
+        };
+
+        var image = new Image(60, 60)
+        image.id = participant.login + "-img";
+        image.src = participant.avatar_url;
+        image.style.marginRight = "10px";
+        image.style.padding = "0";
+        image.style.border = "1px solid #55b0ff";
+        var paragraph = document.createElement("P");
+        paragraph.id = participant.login + "-p";
+        paragraph.style.width = "380px";
+        paragraph.style.height = "auto";
+        paragraph.style.left = "60px";
+        paragraph.style.margin = "0";
+        paragraph.style.padding = "5px";
+        paragraph.innerHTML = "<b>Name:</b> " + participant.login + " </br> <b>contributions:</b> " + participant.contributions;
+        newPerson.appendChild(image);
+        newPerson.appendChild(paragraph);
+        participantsElement.appendChild(newPerson);
+    }
+    var xhReq = new XMLHttpRequest();
+    var page = 1, per_page = 100;
+    var participantsList = [];
+    while (true) {
+        //request data
+        xhReq.open("GET", "https://api.github.com/repos/ioniodi/D3js-uk-political-donations/contributors?page=" + page + "&per_page=" + per_page, false);
+        xhReq.send(null);
+        var data_lst = JSON.parse(xhReq.responseText);
+        var data_lst_len = data_lst.length;
+        if (data_lst_len === 0) {
+            break;
+        }
+        else {
+            participantsList = participantsList.concat(data_lst);
+            if (data_lst_len != per_page) {
+                break;
+            }
+            else {
+                page++;
+            }
+        }
+    }
+    for (var i = 0; i < participantsList.length; i++) {
+        addPerson(participantsList[i]);
+    }
+
+  </script>
+</body>
+
+</html>
