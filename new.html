@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Circle Packing</title>
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+  <script src="source/d3.v3.min.js" charset="utf-8"></script>
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+  <style type="text/css">
+    *{
+      font-family: 'Roboto', sans-serif;
+    }
+  </style>
+  
+  <script>var ml = { timelines: {}};</script>
+  
+   <link rel="stylesheet" type="text/css" href="style.css"> 
+</head>
+  <body style="background-color: #e6eaf2;">
+  <meta charset="utf-8">
+
+    <body>
+      <header role="banner" id="title">
+        <h1>Who's funding the big three?</h1>
+      </header>
+      <nav role="navigation">
+        <ul>
+            <li><a href="index.html" role="button" class="pure-button switch" id="back-page">Back Page</a>
+            </li>
+            <li><a href="#" role="button" class="pure-button switch" id="group-by-money-source">The public's purse</a>
+            </li>
+            <li><a href="#" role="button" class="pure-button switch" id="group-by-party">Split by party</a>
+            </li>
+            <li><a href="#" role="button" class="pure-button switch" id="group-by-donor-type">Split by type of donor</a>
+            </li>
+            <li><a href="#" role="button" class="pure-button switch" id="group-by-the-amount-of-donors">Split by amount</a>
+            </li>
+        </ul>
+      </nav>
+
+      <div id="pie"></div>
+    </body>
+    
+    <script src="js/transition.js"></script>
+    <script src="js/DonutChart.js"></script>
+  </body>
+</html>
+
+    
